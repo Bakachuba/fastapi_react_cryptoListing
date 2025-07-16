@@ -11,7 +11,7 @@ https://coinmarketcap.com/api/pricing/
 3) Скопировать API key
 
 Запуск локально:
-1) uvicorn main:app --reload
+1) uvicorn src.main:app --reload
 1.1) Если порт занят: npx kill-port 8000
 
 
