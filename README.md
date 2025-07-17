@@ -35,3 +35,6 @@ axios:
 URLS:
 
 1) http://127.0.0.1:8000/docs#/
+
+Если .idea попал в коммит:
+1) git rm -r --cached .idea
