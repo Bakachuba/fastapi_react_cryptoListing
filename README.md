@@ -22,10 +22,14 @@ vite/docs:
 tailwindcss docs:
 1) https://tailwindcss.com/docs/installation/using-vite
 2) npm install tailwindcss @tailwindcss/vite
+3) npm install -D @tailwindcss/postcss
 
 ant design (components: btns, icons, pagination etc.):
 1) https://ant.design/docs/react/use-with-vite
 2) npm install antd --save
+
+axios:
+1) npm install axios
 
 
 URLS:
