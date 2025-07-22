@@ -42,3 +42,8 @@ URLS:
 3) git rm -r --cached ./.idea
 4) git commit -m "chore: remove .idea from repo"
 
+Исп. Технологии:
+1) fastapi
+2) react, vite, tailwind css
+3) .env
+3) async-lru cash
