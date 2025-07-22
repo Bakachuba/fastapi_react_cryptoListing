@@ -1,18 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
-const items = [
-  {
-      key: 'g1',
-      label: 'Список криптовалют',
-      type: 'group',
-      children: [
-        { key: '1', label: 'Option 1' },
-        { key: '2', label: 'Option 2' },
-      ],
-  },
-];
+import axios from 'axios';
+
+// Функция для создания пункта меню
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
 const App = () => {
+  const [currencies, setCurrencies] = useState([])
+
+  const fetchCurrencies = () => {
+    axios.get("http://127.0.0.1:8000/cryptocurrencies").then(r => {
+      const currenciesResponse = r.data;
+      const menuItems = [
+        getItem(
+          'Список криптовалют', 
+          'g1',  
+          null, 
+          currenciesResponse.map(c => ({
+            label: c.name, 
+            key: c.id
+          })),
+          'group'
+        ),
+      ];
+      setCurrencies(menuItems);
+    });
+  } ;
+
+  useEffect(() => {
+    fetchCurrencies();
+  }, []);
+
   const onClick = e => {
     console.log('click ', e);
   };
@@ -21,9 +48,9 @@ const App = () => {
       onClick={onClick}
       style={{ width: 256 }}
       defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
+      defaultOpenKeys={['g1']}
       mode="inline"
-      items={items}
+      items={currencies}
     />
   );
 };

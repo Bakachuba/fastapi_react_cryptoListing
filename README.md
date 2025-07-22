@@ -38,3 +38,7 @@ URLS:
 
 Если .idea попал в коммит:
 1) git rm -r --cached .idea
+2) git rm -r --cached E:/PyCharm_projects/react_fastapi_crypto/.idea
+3) git rm -r --cached ./.idea
+4) git commit -m "chore: remove .idea from repo"
+
